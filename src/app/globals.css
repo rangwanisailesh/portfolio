@@ -1,26 +1,13 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer components {
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  .contain {
+    @apply max-w-[1250px] mx-auto;
   }
-}
+  
+  .btn1  {
+    @apply bg-gradient-to-r from-sky-300 to-pink-300 hover:from-pink-300 hover:to-sky-300 px-4 py-2 rounded-lg shadow-lg hover:scale-[105%] duration-300 cursor-pointer;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
