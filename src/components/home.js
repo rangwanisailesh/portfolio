@@ -27,16 +27,86 @@ export const HomeComp = () => {
     ];
 
     const skills = [
-        { name: 'Next Js', icon: <RiNextjsFill /> },
-        { name: 'React Js', icon: <FaReact /> },
-        { name: 'Node Js', icon: <FaNodeJs /> },
-        { name: 'Express Js', icon: <SiExpress /> },
-        { name: 'Github', icon: <FaGithub /> },
-        { name: 'MongoDB', icon: <SiMongodb /> },
-        { name: 'Headless Apps', icon: <SiHeadlessui /> },
-        { name: 'AWS', icon: <FaAws /> },
-        { name: 'Blockchain', icon: <LiaLaptopCodeSolid /> },
-        { name: 'Solidity', icon: <SiSolidity /> },
+        {
+            name: 'Next Js',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black rounded-full flex justify-center items-center drop-shadow">
+                    <RiNextjsFill className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'React Js',
+            icon: (
+                <div className="h-10 w-10 bg-sky-500 rounded-full flex justify-center items-center">
+                    <FaReact className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Node Js',
+            icon: (
+                <div className="h-10 w-10 bg-green-500 rounded-full flex justify-center items-center">
+                    <FaNodeJs className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Express Js',
+            icon: (
+                <div className="h-10 w-10 bg-gray-800 rounded-full flex justify-center items-center">
+                    <SiExpress className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Github',
+            icon: (
+                <div className="h-10 w-10 bg-gray-900 rounded-full flex justify-center items-center">
+                    <FaGithub className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'MongoDB',
+            icon: (
+                <div className="h-10 w-10 bg-green-700 rounded-full flex justify-center items-center">
+                    <SiMongodb className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Headless Apps',
+            icon: (
+                <div className="h-10 w-10 bg-indigo-500 rounded-full flex justify-center items-center">
+                    <SiHeadlessui className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'AWS',
+            icon: (
+                <div className="h-10 w-10 bg-orange-500 rounded-full flex justify-center items-center">
+                    <FaAws className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Blockchain',
+            icon: (
+                <div className="h-10 w-10 bg-blue-700 rounded-full flex justify-center items-center">
+                    <LiaLaptopCodeSolid className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Solidity',
+            icon: (
+                <div className="h-10 w-10 bg-gray-500 rounded-full flex justify-center items-center">
+                    <SiSolidity className="text-white text-xl" />
+                </div>
+            ),
+        },
     ];
 
     return (
@@ -102,17 +172,68 @@ export const HomeComp = () => {
                     </div>
 
                     {/* Skills */}
-                    <div className="space-y-4">
+                    <div className="grid grid-cols-1 gap-8">
 
                         <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
-                            Core Skills
+                            Skills
                         </div>
 
                         <div className="flex justify-center items-center m-auto">
 
                             {skills.slice(0, 1).map((i, index) => {
                                 return (
-                                    <div className="space-y-2">
+                                    <div key={index} className="space-y-2">
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.icon}
+                                        </div>
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.name}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+
+                        <div className="flex justify-center items-center m-auto space-x-10">
+
+                            {skills.slice(1, 3).map((i, index) => {
+                                return (
+                                    <div key={index} className="space-y-2">
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.icon}
+                                        </div>
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.name}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+
+                        <div className="flex justify-center items-center m-auto space-x-10">
+
+                            {skills.slice(3, 6).map((i, index) => {
+                                return (
+                                    <div key={index} className="space-y-2">
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.icon}
+                                        </div>
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.name}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+
+                        <div className="flex justify-center items-center m-auto space-x-10">
+
+                            {skills.slice(6, 10).map((i, index) => {
+                                return (
+                                    <div key={index} className="space-y-2">
                                         <div className="flex justify-center mx-auto text-center">
                                             {i.icon}
                                         </div>
