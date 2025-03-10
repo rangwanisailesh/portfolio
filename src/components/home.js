@@ -30,7 +30,7 @@ export const HomeComp = () => {
         {
             name: 'Next Js',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black rounded-full flex justify-center items-center drop-shadow">
+                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
                     <RiNextjsFill className="text-white text-xl" />
                 </div>
             ),
@@ -38,7 +38,7 @@ export const HomeComp = () => {
         {
             name: 'React Js',
             icon: (
-                <div className="h-10 w-10 bg-sky-500 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-sky-400 to-sky-600 rounded-full drop-shadow flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaReact className="text-white text-xl" />
                 </div>
             ),
@@ -46,7 +46,7 @@ export const HomeComp = () => {
         {
             name: 'Node Js',
             icon: (
-                <div className="h-10 w-10 bg-green-500 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-green-400 to-green-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaNodeJs className="text-white text-xl" />
                 </div>
             ),
@@ -54,7 +54,7 @@ export const HomeComp = () => {
         {
             name: 'Express Js',
             icon: (
-                <div className="h-10 w-10 bg-gray-800 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-yellow-400 to-yellow-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <SiExpress className="text-white text-xl" />
                 </div>
             ),
@@ -62,7 +62,7 @@ export const HomeComp = () => {
         {
             name: 'Github',
             icon: (
-                <div className="h-10 w-10 bg-gray-900 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-gray-900 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaGithub className="text-white text-xl" />
                 </div>
             ),
@@ -70,7 +70,7 @@ export const HomeComp = () => {
         {
             name: 'MongoDB',
             icon: (
-                <div className="h-10 w-10 bg-green-700 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-green-500 to-green-700 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <SiMongodb className="text-white text-xl" />
                 </div>
             ),
@@ -78,7 +78,7 @@ export const HomeComp = () => {
         {
             name: 'Headless Apps',
             icon: (
-                <div className="h-10 w-10 bg-indigo-500 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-indigo-400 to-indigo-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <SiHeadlessui className="text-white text-xl" />
                 </div>
             ),
@@ -86,7 +86,7 @@ export const HomeComp = () => {
         {
             name: 'AWS',
             icon: (
-                <div className="h-10 w-10 bg-orange-500 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-orange-400 to-orange-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaAws className="text-white text-xl" />
                 </div>
             ),
@@ -94,7 +94,7 @@ export const HomeComp = () => {
         {
             name: 'Blockchain',
             icon: (
-                <div className="h-10 w-10 bg-blue-700 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-blue-400 to-blue-600 rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <LiaLaptopCodeSolid className="text-white text-xl" />
                 </div>
             ),
@@ -102,7 +102,7 @@ export const HomeComp = () => {
         {
             name: 'Solidity',
             icon: (
-                <div className="h-10 w-10 bg-gray-500 rounded-full flex justify-center items-center">
+                <div className="h-10 w-10 bg-gradient-to-b from-violet-500 to-violet-700 rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <SiSolidity className="text-white text-xl" />
                 </div>
             ),
@@ -147,7 +147,7 @@ export const HomeComp = () => {
 
                 {/* Banner */}
                 <div className="h-[80vh] w-full">
-
+                        {/* Lottie Icons */}
                 </div>
 
                 <div className="px-5 py-10 space-y-12">
@@ -172,7 +172,7 @@ export const HomeComp = () => {
                     </div>
 
                     {/* Skills */}
-                    <div className="grid grid-cols-1 gap-8">
+                    <div className="grid grid-cols-1 gap-10">
 
                         <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
                             Skills
@@ -195,7 +195,7 @@ export const HomeComp = () => {
 
                         </div>
 
-                        <div className="flex justify-center items-center m-auto space-x-10">
+                        <div className="flex justify-center items-center m-auto space-x-12">
 
                             {skills.slice(1, 3).map((i, index) => {
                                 return (
@@ -212,7 +212,7 @@ export const HomeComp = () => {
 
                         </div>
 
-                        <div className="flex justify-center items-center m-auto space-x-10">
+                        <div className="flex justify-center items-center m-auto space-x-12">
 
                             {skills.slice(3, 6).map((i, index) => {
                                 return (
@@ -229,7 +229,7 @@ export const HomeComp = () => {
 
                         </div>
 
-                        <div className="flex justify-center items-center m-auto space-x-10">
+                        <div className="flex justify-center items-center m-auto space-x-12">
 
                             {skills.slice(6, 10).map((i, index) => {
                                 return (
