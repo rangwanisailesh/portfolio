@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import {
     cormorantbold,
     dancingbold,
@@ -22,8 +24,8 @@ export const HomeComp = () => {
         { name: 'Home' },
         { name: 'About' },
         { name: 'Skills' },
-        { name: 'Experience' },
         { name: 'Projects' },
+        { name: 'Experience' },
     ];
 
     const skills = [
@@ -147,10 +149,10 @@ export const HomeComp = () => {
 
                 {/* Banner */}
                 <div className="h-[80vh] w-full">
-                        {/* Lottie Icons */}
+                    {/* Lottie Icons */}
                 </div>
 
-                <div className="px-5 py-10 space-y-12">
+                <div className="px-5 py-10 space-y-14">
 
                     {/* About */}
                     <div className="flex">
@@ -174,75 +176,88 @@ export const HomeComp = () => {
                     {/* Skills */}
                     <div className="grid grid-cols-1 gap-10">
 
+                        <div className="space-y-5">
+                            <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
+                                Skills
+                            </div>
+
+                            <div className="flex justify-center mx-auto text-center lg:w-[70%] text-gray-700">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-5 gap-6">
+
+                            {skills.map((i, index) => {
+                                return (
+                                    <div key={index} className="space-y-2">
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.icon}
+                                        </div>
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.name}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+
+                        </div>
+
+                    </div>
+
+                    {/* Projects */}
+                    <div className="">
+
                         <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
-                            Skills
+                            Projects
                         </div>
 
-                        <div className="flex justify-center items-center m-auto">
+                    </div>
 
-                            {skills.slice(0, 1).map((i, index) => {
-                                return (
-                                    <div key={index} className="space-y-2">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.name}
-                                        </div>
-                                    </div>
-                                )
-                            })}
+                    {/* Experience */}
+                    <div className="grid grid-cols-1 gap-10">
 
+                        <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
+                            Experience
                         </div>
 
-                        <div className="flex justify-center items-center m-auto space-x-12">
+                        <div className="grid grid-cols-2">
 
-                            {skills.slice(1, 3).map((i, index) => {
-                                return (
-                                    <div key={index} className="space-y-2">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.name}
-                                        </div>
+                            <div className="flex space-x-4">
+                                <div className="w-auto shrink-0">
+                                    <Image alt="logo" src={'/anriyo.png'} width={200} height={200} className="h-14 w-14" />
+                                </div>
+
+                                <div className="mt-3 space-y-4">
+                                    <div className="font-semibold text-2xl">
+                                        Anriyo Tech Solutions
                                     </div>
-                                )
-                            })}
-
-                        </div>
-
-                        <div className="flex justify-center items-center m-auto space-x-12">
-
-                            {skills.slice(3, 6).map((i, index) => {
-                                return (
-                                    <div key={index} className="space-y-2">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.name}
-                                        </div>
+                                    <div className="text-gray-700">
+                                        April 2023 - Present (2 years)
                                     </div>
-                                )
-                            })}
-
-                        </div>
-
-                        <div className="flex justify-center items-center m-auto space-x-12">
-
-                            {skills.slice(6, 10).map((i, index) => {
-                                return (
-                                    <div key={index} className="space-y-2">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.name}
-                                        </div>
+                                    <div className="text-gray-700">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                                     </div>
-                                )
-                            })}
+                                </div>
+                            </div>
+
+                            <div className="flex space-x-4">
+                                <div className="w-auto shrink-0">
+                                    <Image alt="logo" src={'/anriyo.png'} width={200} height={200} className="h-14 w-14" />
+                                </div>
+
+                                <div className="mt-3 space-y-4">
+                                    <div className="font-semibold text-2xl">
+                                        Oracle Investigation Agency
+                                    </div>
+                                    <div className="text-gray-700">
+                                        Oct 2022 - March 2023 (6 months)
+                                    </div>
+                                    <div className="text-gray-700">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 
