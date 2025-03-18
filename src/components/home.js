@@ -251,6 +251,86 @@ export const HomeComp = () => {
 
             </div>
 
+            {/* Experience */}
+            <div className="bg2">
+
+                <div className={`contain py-14 px-5 space-y-8`}>
+
+                    <div className="space-y-1">
+                        <div className="text-center">------ Experience</div>
+                        <div className={`${inknut} heading1 text-center`}>
+                            <span className="text-sky-500">My Journey</span>
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-6">
+
+                        <div></div>
+
+                        <div className="space-y-5">
+                            <div className="">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            </div>
+
+                            <div className="">
+
+                                <div className="flex space-x-4 h-fit overflow-y-hidden">
+                                    <div className="w-fit space-y-2">
+                                        <div className="h-6 w-6 bg-gradient-to-b from-sky-400 to-sky-700 rounded-full shadow"></div>
+                                        <div className="min-h-10 h-full w-1 bg-gray-400 flex justify-center mx-auto rounded-lg"></div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <div>Apr 2023 - Mar 2025 (2 years)</div>
+                                        <div>Anriyo Tech Solutions</div>
+                                        <div className="text-gray-500">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex space-x-4 mt-3 h-fit overflow-y-hidden">
+                                    <div className="w-fit space-y-2">
+                                        <div className="h-6 w-6 bg-gradient-to-b from-sky-400 to-sky-700 rounded-full shadow"></div>
+                                        <div className="min-h-10 h-full w-1 bg-gray-400 flex justify-center mx-auto rounded-lg"></div>
+                                    </div>
+
+                                    <div className="space-y-2">
+                                        <div>Oct 2022 - Mar 2023 (6 months)</div>
+                                        <div>Oracle Investigation Agency</div>
+                                        <div className="text-gray-500">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {/* Projects */}
+            <div className="bg1">
+
+                <div className={`contain py-14 px-5 space-y-8`}>
+
+                    <div className="space-y-1">
+                        <div className="text-center">------ Portfolio</div>
+                        <div className={`${inknut} heading1 text-center`}>
+                            <span className="text-sky-500">My Creative Work</span>
+                        </div>
+                    </div>
+
+                </div>
+           
+            </div>
+
         </div>
     )
 }
