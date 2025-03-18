@@ -3,13 +3,16 @@ import Image from "next/image";
 import {
     cormorantbold,
     dancingbold,
+    inknut,
+    merriweather,
+    nunitobold,
     poppins
 } from "./fonts"
 
-import { SiCodersrank } from "react-icons/si";
+import { SiCloudinary, SiCodersrank, SiPrisma } from "react-icons/si";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { FaGithub } from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
+import { RiNextjsFill, RiSupabaseFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { FaAws } from "react-icons/fa";
@@ -17,6 +20,7 @@ import { SiMongodb } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { SiHeadlessui } from "react-icons/si";
 import { SiSolidity } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 export const HomeComp = () => {
 
@@ -26,29 +30,22 @@ export const HomeComp = () => {
         { name: 'Skills' },
         { name: 'Projects' },
         { name: 'Experience' },
+        { name: 'Contact' },
     ];
 
     const skills = [
         {
-            name: 'Next Js',
+            name: 'Prisma',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
-                    <RiNextjsFill className="text-white text-xl" />
-                </div>
-            ),
-        },
-        {
-            name: 'React Js',
-            icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-sky-400 to-sky-600 rounded-full drop-shadow flex justify-center items-center hover:scale-[110%] duration-300">
-                    <FaReact className="text-white text-xl" />
+                <div className="h-10 w-10 bg-gradient-to-b from-purple-700 to-purple-900 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <SiPrisma className="text-white text-xl" />
                 </div>
             ),
         },
         {
             name: 'Node Js',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-green-400 to-green-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
+                <div className="h-10 w-10 bg-gradient-to-b from-green-500 to-green-700 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaNodeJs className="text-white text-xl" />
                 </div>
             ),
@@ -56,16 +53,16 @@ export const HomeComp = () => {
         {
             name: 'Express Js',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-yellow-400 to-yellow-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
+                <div className="h-10 w-10 bg-gradient-to-b from-amber-400 to-amber-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <SiExpress className="text-white text-xl" />
                 </div>
             ),
         },
         {
-            name: 'Github',
+            name: 'Postgresql',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-gray-900 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
-                    <FaGithub className="text-white text-xl" />
+                <div className="h-10 w-10 bg-gradient-to-b from-sky-500 to-sky-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <BiLogoPostgresql className="text-white text-xl" />
                 </div>
             ),
         },
@@ -78,18 +75,66 @@ export const HomeComp = () => {
             ),
         },
         {
-            name: 'Headless Apps',
+            name: 'Next Js',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-indigo-400 to-indigo-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
-                    <SiHeadlessui className="text-white text-xl" />
+                <div className="h-10 w-10 bg-gradient-to-b from-blue-900 to-black rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <RiNextjsFill className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'React Js',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-sky-400 to-sky-700 rounded-full drop-shadow flex justify-center items-center hover:scale-[110%] duration-300">
+                    <FaReact className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Github',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
+                    <FaGithub className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Tailwind',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-cyan-400 to-cyan-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <RiTailwindCssFill className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Supabase',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-green-500 to-green-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <RiSupabaseFill className="text-white text-xl" />
                 </div>
             ),
         },
         {
             name: 'AWS',
             icon: (
-                <div className="h-10 w-10 bg-gradient-to-b from-orange-400 to-orange-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
+                <div className="h-10 w-10 bg-gradient-to-b from-yellow-500 to-orange-700 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
                     <FaAws className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Cloudinary',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <SiCloudinary className="text-white text-xl" />
+                </div>
+            ),
+        },
+        {
+            name: 'Headless Apps',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-indigo-400 to-indigo-600 drop-shadow rounded-full flex justify-center items-center hover:scale-[110%] duration-300">
+                    <SiHeadlessui className="text-white text-xl" />
                 </div>
             ),
         },
@@ -112,14 +157,15 @@ export const HomeComp = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-b from-sky-100 to-sky-200">
-            <div className={`contain ${poppins}`}>
+        <div className={`text-white ${poppins}`}>
 
-                {/* Nav */}
-                <div className="w-full flex items-center my-auto p-5">
+            {/* Nav & Banner */}
+            <div className="bg1">
+
+                <div className="w-full flex items-center my-auto p-5 contain">
 
                     <div className="flex items-center my-auto space-x-2 min-w-[40%]">
-                        <div className="h-10 w-10 bg-gradient-to-b from-gray-600 to-black rounded-full text-white drop-shadow-md">
+                        <div className="h-10 w-10 bg-gradient-to-b from-sky-500 to-sky-700 text-white rounded-full drop-shadow-md">
                             <span className="flex justify-center items-center m-auto h-full">
                                 <SiCodersrank className="text-lg" />
                             </span>
@@ -139,133 +185,72 @@ export const HomeComp = () => {
                                 </div>
                             )
                         })}
-
-                        <button className="btn1">
-                            Contact
-                        </button>
                     </div>
 
                 </div>
 
-                {/* Banner */}
-                <div className="h-[80vh] w-full">
+                <div className="h-[85vh] w-full contain">
                     {/* Lottie Icons */}
                 </div>
 
-                <div className="px-5 py-10 space-y-14">
+            </div>
 
-                    {/* About */}
-                    <div className="flex">
+            {/* About */}
+            <div className="bg2">
+                <div className="grid grid-cols-2 gap-6 px-5 py-14 contain">
 
-                        <div className="space-y-4 w-[65%]">
-                            <div className="font-semibold text-3xl">
-                                Few Lines About Myself
-                            </div>
-
-                            <div className="text-gray-700">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                <br /><br />
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <div className="space-y-4">
+                        <div className="space-y-1">
+                            <div>------ About</div>
+                            <div className={`${inknut} heading1`}>
+                                <span className="text-sky-500">Few Lines About Myself</span>
                             </div>
                         </div>
 
-                        <div></div>
-
+                        <div className="">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        </div>
+                        <div className="text-gray-500">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
                     </div>
 
-                    {/* Skills */}
-                    <div className="grid grid-cols-1 gap-10">
+                    <div></div>
 
-                        <div className="space-y-5">
-                            <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
-                                Skills
-                            </div>
+                </div>
+            </div>
 
-                            <div className="flex justify-center mx-auto text-center lg:w-[70%] text-gray-700">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                            </div>
+            {/* Skills */}
+            <div className="bg1">
+
+                <div className={`contain py-14 px-5 space-y-8`}>
+
+                    <div className="space-y-1">
+                        <div className="text-center">------ Skills</div>
+                        <div className={`${inknut} heading1 text-center`}>
+                            <span className="text-sky-500">My Skills & Tools</span>
                         </div>
-
-                        <div className="grid grid-cols-5 gap-6">
-
-                            {skills.map((i, index) => {
-                                return (
-                                    <div key={index} className="space-y-2">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.name}
-                                        </div>
-                                    </div>
-                                )
-                            })}
-
-                        </div>
-
                     </div>
 
-                    {/* Projects */}
-                    <div className="">
-
-                        <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
-                            Projects
-                        </div>
-
-                    </div>
-
-                    {/* Experience */}
-                    <div className="grid grid-cols-1 gap-10">
-
-                        <div className="font-semibold text-3xl flex justify-center mx-auto text-center">
-                            Experience
-                        </div>
-
-                        <div className="grid grid-cols-2">
-
-                            <div className="flex space-x-4">
-                                <div className="w-auto shrink-0">
-                                    <Image alt="logo" src={'/anriyo.png'} width={200} height={200} className="h-14 w-14" />
-                                </div>
-
-                                <div className="mt-3 space-y-4">
-                                    <div className="font-semibold text-2xl">
-                                        Anriyo Tech Solutions
+                    <div className="grid grid-cols-5 gap-x-6 gap-y-10">
+                        {skills.map((i, index) => {
+                            return (
+                                <div className="bg2 border border-gray-800 rounded-lg shadow p-4" key={index}>
+                                    <div className="flex justify-center mx-auto text-center">
+                                        {i.icon}
                                     </div>
-                                    <div className="text-gray-700">
-                                        April 2023 - Present (2 years)
-                                    </div>
-                                    <div className="text-gray-700">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    <div className="flex justify-center mx-auto text-center mt-3">
+                                        {i.name}
                                     </div>
                                 </div>
-                            </div>
-
-                            <div className="flex space-x-4">
-                                <div className="w-auto shrink-0">
-                                    <Image alt="logo" src={'/anriyo.png'} width={200} height={200} className="h-14 w-14" />
-                                </div>
-
-                                <div className="mt-3 space-y-4">
-                                    <div className="font-semibold text-2xl">
-                                        Oracle Investigation Agency
-                                    </div>
-                                    <div className="text-gray-700">
-                                        Oct 2022 - March 2023 (6 months)
-                                    </div>
-                                    <div className="text-gray-700">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
+                            )
+                        })}
                     </div>
 
                 </div>
 
             </div>
+
         </div>
     )
 }
