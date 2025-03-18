@@ -1,3 +1,5 @@
+'use client'
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import {
@@ -8,11 +10,11 @@ import {
     nunitobold,
     poppins
 } from "./fonts"
-
+import TypewriterComponent from "typewriter-effect";
 import { SiCloudinary, SiCodersrank, SiPrisma } from "react-icons/si";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
-import { FaGithub } from "react-icons/fa";
-import { RiNextjsFill, RiSupabaseFill, RiTailwindCssFill } from "react-icons/ri";
+import { FaGithub, FaHeart, FaLinkedinIn } from "react-icons/fa";
+import { RiInstagramFill, RiNextjsFill, RiSupabaseFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiExpress } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
 import { FaAws } from "react-icons/fa";
@@ -21,15 +23,20 @@ import { FaReact } from "react-icons/fa";
 import { SiHeadlessui } from "react-icons/si";
 import { SiSolidity } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
+import { IoMail } from "react-icons/io5";
+import { TbBrandGithubFilled } from "react-icons/tb";
+import { FaXTwitter } from "react-icons/fa6";
 
 export const HomeComp = () => {
+
+    const [projecthover, setProjecthover] = useState(null);
 
     const navItmes = [
         { name: 'Home' },
         { name: 'About' },
         { name: 'Skills' },
-        { name: 'Projects' },
         { name: 'Experience' },
+        { name: 'Projects' },
         { name: 'Contact' },
     ];
 
@@ -156,6 +163,39 @@ export const HomeComp = () => {
         },
     ];
 
+    const projects = [
+        {
+            img: '/appointment.jpg',
+            title: 'Booking System',
+            link: 'https://github.com/rangwanisailesh/Hair-Salon',
+        },
+        {
+            img: '/admin.jpg',
+            title: 'Headless Admin Panel',
+            link: 'https://github.com/rangwanisailesh/Headless-Admin-App',
+        },
+        {
+            img: '/blockchain.jpg',
+            title: 'ERC-20 Token',
+            link: 'https://github.com/rangwanisailesh/sr-token-hardhat',
+        }
+    ];
+
+    const contact = [
+        { icon: <FaLinkedinIn />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <IoMail />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <TbBrandGithubFilled />, link: 'https://github.com/rangwanisailesh' },
+        { icon: <RiInstagramFill />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <FaXTwitter />, link: 'mailto:s.rangwani44@gmail.com' },
+    ];
+
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://cdn.lordicon.com/xdjxvujz.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }, []);
+
     return (
         <div className={`text-white ${poppins}`}>
 
@@ -189,8 +229,52 @@ export const HomeComp = () => {
 
                 </div>
 
-                <div className="h-[85vh] w-full contain">
-                    {/* Lottie Icons */}
+                <div className="h-[85vh] w-full contain flex items-center justify-center m-auto">
+
+                    <div className="space-y-6">
+
+                        <div className={`text-4xl text-center ${inknut}`}>
+                            <TypewriterComponent
+                                options={{
+                                    strings: ['Welcome to my <span class="text-sky-500">Portfolio !</span>'],
+                                    autoStart: true,
+                                    loop: false,
+                                    delay: 75,
+                                    deleteSpeed: Infinity,
+                                    cursor: '',
+                                    html: true
+                                }}
+                            />
+                        </div>
+
+                        <div className={`text-lg lg:w-[70%] text-center flex justify-center mx-auto`}>
+                            I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer & Deployment Specialist.
+                        </div>
+
+                        <div className="flex justify-center mx-auto space-x-10">
+                            <div>
+                                <lord-icon
+                                    src="/code.json"
+                                    trigger="loop"
+                                    style={{ width: "70px", height: "70px" }}
+                                ></lord-icon>
+                            </div>
+                            <div>
+                                <lord-icon
+                                    src="/dev.json"
+                                    trigger="loop"
+                                    style={{ width: "70px", height: "70px" }}
+                                ></lord-icon>
+                            </div>
+                            <div>
+                                <lord-icon
+                                    src="/layer.json"
+                                    trigger="loop"
+                                    style={{ width: "70px", height: "70px" }}
+                                ></lord-icon>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -201,7 +285,7 @@ export const HomeComp = () => {
 
                     <div className="space-y-4">
                         <div className="space-y-1">
-                            <div>------ About</div>
+                            <div>-- About --</div>
                             <div className={`${inknut} heading1`}>
                                 <span className="text-sky-500">Few Lines About Myself</span>
                             </div>
@@ -226,7 +310,7 @@ export const HomeComp = () => {
                 <div className={`contain py-14 px-5 space-y-8`}>
 
                     <div className="space-y-1">
-                        <div className="text-center">------ Skills</div>
+                        <div className="text-center">-- Skills --</div>
                         <div className={`${inknut} heading1 text-center`}>
                             <span className="text-sky-500">My Skills & Tools</span>
                         </div>
@@ -235,7 +319,7 @@ export const HomeComp = () => {
                     <div className="grid grid-cols-5 gap-x-6 gap-y-10">
                         {skills.map((i, index) => {
                             return (
-                                <div className="bg2 border border-gray-800 rounded-lg shadow p-4" key={index}>
+                                <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300" key={index}>
                                     <div className="flex justify-center mx-auto text-center">
                                         {i.icon}
                                     </div>
@@ -257,7 +341,7 @@ export const HomeComp = () => {
                 <div className={`contain py-14 px-5 space-y-8`}>
 
                     <div className="space-y-1">
-                        <div className="text-center">------ Experience</div>
+                        <div className="text-center">-- Experience --</div>
                         <div className={`${inknut} heading1 text-center`}>
                             <span className="text-sky-500">My Journey</span>
                         </div>
@@ -321,14 +405,92 @@ export const HomeComp = () => {
                 <div className={`contain py-14 px-5 space-y-8`}>
 
                     <div className="space-y-1">
-                        <div className="text-center">------ Portfolio</div>
+                        <div className="text-center">-- Portfolio --</div>
                         <div className={`${inknut} heading1 text-center`}>
                             <span className="text-sky-500">My Creative Work</span>
                         </div>
+                        <div className="text-center text-gray-500 lg:w-[60%] flex justify-center mx-auto mt-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-6">
+
+                        {projects.map((i, index) => {
+                            return (
+                                <a
+                                    href={i.link}
+                                    key={index}
+                                    target="_blank"
+                                    onMouseEnter={() => setProjecthover(index)}
+                                    onMouseLeave={() => setProjecthover(null)}
+                                    className="h-80 w-full relative overflow-hidden cursor-pointer">
+                                    <Image
+                                        alt="appointment system"
+                                        src={i.img}
+                                        objectFit="cover"
+                                        layout="position"
+                                        fill={true}
+                                        objectPosition="top"
+                                        className={`${projecthover == index ? 'scale-[110%] duration-300' : 'duration-300'}`}
+                                    />
+                                    <div className="p-4 bg-[#121212ba] w-full h-full absolute top-0 left-0">
+
+                                        <div className="flex items-center my-auto space-x-2">
+                                            <div className="w-1 h-6 bg-sky-500 rounded-lg"></div>
+                                            <div className="text-lg">
+                                                {i.title}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            )
+                        })}
+
                     </div>
 
                 </div>
-           
+
+            </div>
+
+            {/* Contact */}
+            <div className="bg2">
+
+                <div className={`contain py-14 px-5 space-y-8`}>
+
+                    <div className="space-y-1">
+                        <div className="text-center">-- Contact --</div>
+                        <div className={`${inknut} heading1 text-center`}>
+                            <span className="text-sky-500">Reach Out To Me</span>
+                        </div>
+                        <div className="text-center text-gray-500 lg:w-[60%] flex justify-center mx-auto mt-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        </div>
+                    </div>
+
+                    <div className="w-full">
+                        <div className="flex justify-center mx-auto space-x-3">
+                            {contact.map((i, index) => {
+                                return (
+                                    <button key={index} className="h-9 w-9 bg-gradient-to-b from-gray-300 to-white shadow rounded-full hover:scale-[110%] duration-300 cursor-pointer">
+                                        <span className="text-[#0F161C] flex justify-center items-center m-auto h-full text-lg">
+                                            {i.icon}
+                                        </span>
+                                    </button>
+                                )
+                            })}
+                        </div>
+                    </div>
+
+                    <div className="border-t pt-10 border-gray-800 w-full text-center">
+                        <span>
+                            Design with ❤️ by Sailesh Rangwani
+                        </span>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
