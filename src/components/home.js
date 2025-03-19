@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 import {
     cormorantbold,
@@ -10,7 +11,15 @@ import {
     nunitobold,
     poppins
 } from "./fonts"
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import TypewriterComponent from "typewriter-effect";
+import { Link } from "react-scroll";
+
+import CoderAnimtation from "../../public/person2.json";
+import TimeAnimtation from "../../public/time.json";
+
 import { SiCloudinary, SiCodersrank, SiPrisma } from "react-icons/si";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { FaGithub, FaHeart, FaLinkedinIn } from "react-icons/fa";
@@ -25,11 +34,16 @@ import { SiSolidity } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoMail } from "react-icons/io5";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaArrowUp, FaBars, FaXTwitter } from "react-icons/fa6";
+import { RxCross2 } from "react-icons/rx";
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export const HomeComp = () => {
 
     const [projecthover, setProjecthover] = useState(null);
+    const [top, setTop] = useState(false);
+    const [toogle, setToogle] = useState(false);
 
     const navItmes = [
         { name: 'Home' },
@@ -182,14 +196,38 @@ export const HomeComp = () => {
     ];
 
     const contact = [
-        { icon: <FaLinkedinIn />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/sailesh-rangwani-a8523a16a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
         { icon: <IoMail />, link: 'mailto:s.rangwani44@gmail.com' },
         { icon: <TbBrandGithubFilled />, link: 'https://github.com/rangwanisailesh' },
-        { icon: <RiInstagramFill />, link: 'mailto:s.rangwani44@gmail.com' },
-        { icon: <FaXTwitter />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <RiInstagramFill />, link: 'https://www.instagram.com/sailesh_rangwani?utm_source=qr&igsh=MW5yODBxbG9rY29zcw==' },
+        { icon: <FaXTwitter />, link: 'https://x.com/Sailesh_R?t=xbEh8pWG9ih0j5AJ4B5H1Q&s=08' },
     ];
 
     useEffect(() => {
+
+        const handleScroll = () => {
+
+            if (window.scrollY > 50) {
+                setTop(true);
+            } else {
+                setTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
+
+        AOS.init({
+            once: true,
+            disableMutationObserver: true
+        });
+
         const script = document.createElement("script");
         script.src = "https://cdn.lordicon.com/xdjxvujz.js";
         script.async = true;
@@ -200,43 +238,65 @@ export const HomeComp = () => {
         <div className={`text-white ${poppins}`}>
 
             {/* Nav & Banner */}
-            <div className="bg1">
+            <div id="Home" className="bg1 h-[100vh]">
 
-                <div className="w-full flex items-center my-auto p-5 contain">
+                <div className="w-full flex items-center my-auto p-5 lg:px-8 contain">
 
-                    <div className="flex items-center my-auto space-x-2 min-w-[40%]">
+                    <div className="flex items-center my-auto space-x-2 min-w-[60%] md:min-w-[40%]">
                         <div className="h-10 w-10 bg-gradient-to-b from-sky-500 to-sky-700 text-white rounded-full drop-shadow-md">
                             <span className="flex justify-center items-center m-auto h-full">
                                 <SiCodersrank className="text-lg" />
                             </span>
                         </div>
-                        <div className={`${dancingbold} text-2xl text-center italic drop-shadow-md`}>
+                        <div className={`${dancingbold} text-xl md:text-2xl text-center italic drop-shadow-md`}>
                             Sailesh Rangwani
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-end w-full space-x-4">
+                    <div className="hidden lg:flex items-center justify-end w-full space-x-4">
                         {navItmes.map((i, index) => {
                             return (
                                 <div key={index}>
                                     <button className="cursor-pointer hover:scale-[105%] duration-300 hover:text-sky-500">
-                                        {i.name}
+                                        <Link to={i.name} smooth={true} duration={500}>
+                                            {i.name}
+                                        </Link>
                                     </button>
                                 </div>
                             )
                         })}
                     </div>
 
+                    <div className="flex lg:hidden items-center my-auto justify-end w-full relative">
+                        <button onClick={() => setToogle(!toogle)}>
+                            {toogle ? <RxCross2 /> : <FaBars />}
+                        </button>
+
+                        <div className={`${toogle ? 'absolute lg:hidden duration-300 top-6 right-4 bg-white rounded-lg p-4 shadow-lg' : 'duration-300 hidden'}`}>
+                            {navItmes.map((i, index) => {
+                                return (
+                                    <div key={index}>
+                                        <button className="text-black w-full border-b border-gray-300 pb-2 mb-2 cursor-pointer hover:scale-[105%] duration-300 hover:text-sky-500">
+                                            <Link onClick={() => setToogle(false)} to={i.name} smooth={true} duration={500}>
+                                                {i.name}
+                                            </Link>
+                                        </button>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>
+
                 </div>
 
-                <div className="h-[85vh] w-full contain flex items-center justify-center m-auto">
+                <div className="h-[85vh] w-full contain flex items-center justify-center m-auto px-5">
 
-                    <div className="space-y-6">
+                    <div className="space-y-10">
 
                         <div className={`text-4xl text-center ${inknut}`}>
                             <TypewriterComponent
                                 options={{
-                                    strings: ['Welcome to my <span class="text-sky-500">Portfolio !</span>'],
+                                    strings: ['Welcome To My <span class="text-sky-500">Portfolio !</span>'],
                                     autoStart: true,
                                     loop: false,
                                     delay: 75,
@@ -247,26 +307,26 @@ export const HomeComp = () => {
                             />
                         </div>
 
-                        <div className={`text-lg lg:w-[70%] text-center flex justify-center mx-auto`}>
-                            I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer & Deployment Specialist.
+                        <div data-aos="fade-in" data-aos-duration="2000" data-aos-delay="2000" className={`text-lg lg:w-[70%] text-center flex justify-center mx-auto`}>
+                            Hi, I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer & Deployment Specialist.
                         </div>
 
                         <div className="flex justify-center mx-auto space-x-10">
-                            <div>
+                            <div data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="2500">
                                 <lord-icon
                                     src="/code.json"
                                     trigger="loop"
                                     style={{ width: "70px", height: "70px" }}
                                 ></lord-icon>
                             </div>
-                            <div>
+                            <div data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="2700">
                                 <lord-icon
                                     src="/dev.json"
                                     trigger="loop"
                                     style={{ width: "70px", height: "70px" }}
                                 ></lord-icon>
                             </div>
-                            <div>
+                            <div data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="3000">
                                 <lord-icon
                                     src="/layer.json"
                                     trigger="loop"
@@ -280,51 +340,61 @@ export const HomeComp = () => {
             </div>
 
             {/* About */}
-            <div className="bg2">
-                <div className="grid grid-cols-2 gap-6 px-5 py-14 contain">
+            <div id="About" className="bg2">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-5 lg:px-8 py-14 contain">
 
-                    <div className="space-y-4">
-                        <div className="space-y-1">
-                            <div>-- About --</div>
-                            <div className={`${inknut} heading1`}>
-                                <span className="text-sky-500">Few Lines About Myself</span>
+                    <div data-aos="fade-right" data-aos-duration="2000" className="space-y-4">
+                        <div className="space-y-6 lg:space-y-1">
+                            <div className=" text-center lg:text-left">-- About Me --</div>
+                            <div className={`${inknut} heading1 text-center lg:text-left`}>
+                                <span className="text-sky-500">Who I Am & What I Do</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div className="flex lg:hidden justify-center items-center m-auto drop-shadow-lg">
+                                <Lottie animationData={CoderAnimtation} loop={true} className="w-auto h-72" />
                             </div>
                         </div>
 
                         <div className="">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                            Hey there! I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer, and Deployment Specialist. With expertise in building scalable web applications, APIs, and cloud deployments, I love turning complex ideas into seamless digital experiences.
                         </div>
-                        <div className="text-gray-500">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <div className="text-gray-400">
+                            From crafting dynamic frontend interfaces to designing robust backend architectures, I ensure performance, security, and reliability at every step. Whether it's database management, API integrations, or deploying applications to the cloud, I thrive on delivering efficient and scalable solutions.
                         </div>
                     </div>
 
-                    <div></div>
+                    <div data-aos="fade-left" data-aos-duration="2000" className="hidden lg:flex justify-center items-center m-auto drop-shadow-lg">
+                        <Lottie animationData={CoderAnimtation} loop={true} className="w-auto h-72" />
+                    </div>
 
                 </div>
             </div>
 
             {/* Skills */}
-            <div className="bg1">
+            <div id="Skills" className="bg1">
 
-                <div className={`contain py-14 px-5 space-y-8`}>
+                <div className={`contain py-14 px-5 lg:px-8 space-y-8`}>
 
-                    <div className="space-y-1">
+                    <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Skills --</div>
                         <div className={`${inknut} heading1 text-center`}>
                             <span className="text-sky-500">My Skills & Tools</span>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-5 gap-x-6 gap-y-10">
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
                         {skills.map((i, index) => {
                             return (
-                                <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300" key={index}>
-                                    <div className="flex justify-center mx-auto text-center">
-                                        {i.icon}
-                                    </div>
-                                    <div className="flex justify-center mx-auto text-center mt-3">
-                                        {i.name}
+                                <div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={100 * index} key={index}>
+                                    <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300">
+                                        <div className="flex justify-center mx-auto text-center">
+                                            {i.icon}
+                                        </div>
+                                        <div className="flex justify-center mx-auto text-center mt-3">
+                                            {i.name}
+                                        </div>
                                     </div>
                                 </div>
                             )
@@ -336,25 +406,27 @@ export const HomeComp = () => {
             </div>
 
             {/* Experience */}
-            <div className="bg2">
+            <div id="Experience" className="bg2">
 
-                <div className={`contain py-14 px-5 space-y-8`}>
+                <div className={`contain py-14 px-5 lg:px-8 space-y-8`}>
 
-                    <div className="space-y-1">
+                    <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Experience --</div>
                         <div className={`${inknut} heading1 text-center`}>
-                            <span className="text-sky-500">My Journey</span>
+                            <span className="text-sky-500">My Journey in Tech & Beyond</span>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-                        <div></div>
+                        <div data-aos="fade-right" data-aos-duration="2000" className="flex justify-center items-center m-auto drop-shadow-lg">
+                            <Lottie animationData={TimeAnimtation} loop={true} className="w-80 h-80" />
+                        </div>
 
-                        <div className="space-y-5">
+                        <div data-aos="fade-left" data-aos-duration="2000" className="space-y-5">
                             <div className="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                My coding journey began in HSC with a deep interest in technology, but COVID led me to work as an Investigator at Oracle Investigation Agency, handling reports, documentation, and portal management.
+                                Later, I transitioned to Anriyo Tech Solutions as a Full Stack Developer, building Full Stack Apps, and deploying scalable web solutions focused on performance and security.
                             </div>
 
                             <div className="">
@@ -367,10 +439,9 @@ export const HomeComp = () => {
 
                                     <div className="space-y-2">
                                         <div>Apr 2023 - Mar 2025 (2 years)</div>
-                                        <div>Anriyo Tech Solutions</div>
-                                        <div className="text-gray-500">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        <div>Full Stack Developer | Anriyo Tech Solutions</div>
+                                        <div className="text-gray-400">
+                                            Designed & developed Headless Applications for scalable solutions. Built and deployed full-stack applications, optimizing security, performance, and efficiency. Integrated APIs and streamlined backend operations for seamless functionality.
                                         </div>
                                     </div>
                                 </div>
@@ -383,10 +454,11 @@ export const HomeComp = () => {
 
                                     <div className="space-y-2">
                                         <div>Oct 2022 - Mar 2023 (6 months)</div>
-                                        <div>Oracle Investigation Agency</div>
-                                        <div className="text-gray-500">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                                        <div>Investigator | Oracle Investigation Agency</div>
+                                        <div className="text-gray-400">
+                                            Conducted detailed MS Excel reports & documentations.
+                                            Managed & updated records on their internal investigation portal.
+                                            Strengthened data analysis and reporting skills.
                                         </div>
                                     </div>
                                 </div>
@@ -400,21 +472,21 @@ export const HomeComp = () => {
             </div>
 
             {/* Projects */}
-            <div className="bg1">
+            <div id="Projects" className="bg1">
 
-                <div className={`contain py-14 px-5 space-y-8`}>
+                <div className={`contain py-14 px-5 lg:px-8 space-y-8`}>
 
-                    <div className="space-y-1">
+                    <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Portfolio --</div>
                         <div className={`${inknut} heading1 text-center`}>
-                            <span className="text-sky-500">My Creative Work</span>
+                            <span className="text-sky-500">Showcasing My Work</span>
                         </div>
-                        <div className="text-center text-gray-500 lg:w-[60%] flex justify-center mx-auto mt-2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipiscing elit
+                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
+                            Here are some of my projects showcasing my skills in full-stack development, headless applications, and efficient deployments.
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                         {projects.map((i, index) => {
                             return (
@@ -424,6 +496,7 @@ export const HomeComp = () => {
                                     target="_blank"
                                     onMouseEnter={() => setProjecthover(index)}
                                     onMouseLeave={() => setProjecthover(null)}
+                                    data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={index * 200}
                                     className="h-80 w-full relative overflow-hidden cursor-pointer">
                                     <Image
                                         alt="appointment system"
@@ -455,35 +528,37 @@ export const HomeComp = () => {
             </div>
 
             {/* Contact */}
-            <div className="bg2">
+            <div id="Contact" className="bg2">
 
-                <div className={`contain py-14 px-5 space-y-8`}>
+                <div className={`contain py-14 px-5 lg:px-8 space-y-8`}>
 
-                    <div className="space-y-1">
+                    <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Contact --</div>
                         <div className={`${inknut} heading1 text-center`}>
                             <span className="text-sky-500">Reach Out To Me</span>
                         </div>
-                        <div className="text-center text-gray-500 lg:w-[60%] flex justify-center mx-auto mt-2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
+                            Feel free to reach out for collaborations, projects, or just a tech chat. I'm always open to new opportunities!
                         </div>
                     </div>
 
                     <div className="w-full">
-                        <div className="flex justify-center mx-auto space-x-3">
+                        <div data-aos="zoom-in" data-aos-duration="2000" className="flex justify-center mx-auto space-x-3">
                             {contact.map((i, index) => {
                                 return (
-                                    <button key={index} className="h-9 w-9 bg-gradient-to-b from-gray-300 to-white shadow rounded-full hover:scale-[110%] duration-300 cursor-pointer">
-                                        <span className="text-[#0F161C] flex justify-center items-center m-auto h-full text-lg">
-                                            {i.icon}
-                                        </span>
-                                    </button>
+                                    <a href={i.link} target="_blank" data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={200 * index} key={index}>
+                                        <div className="h-9 w-9 bg-gradient-to-b from-gray-100 to-white shadow rounded-full hover:scale-[110%] duration-300 cursor-pointer">
+                                            <span className="text-[#0F161C] flex justify-center items-center m-auto h-full text-lg">
+                                                {i.icon}
+                                            </span>
+                                        </div>
+                                    </a>
                                 )
                             })}
                         </div>
                     </div>
 
-                    <div className="border-t pt-10 border-gray-800 w-full text-center">
+                    <div data-aos="fade-in" data-aos-duration="2000" className="border-t pt-10 border-gray-800 w-full text-center">
                         <span>
                             Design with ❤️ by Sailesh Rangwani
                         </span>
@@ -492,6 +567,15 @@ export const HomeComp = () => {
                 </div>
 
             </div>
+
+            {/* Top Button */}
+            <Link to={"Home"} smooth={true} duration={500}>
+                <button className={`${top ? 'cursor-pointer fixed bottom-8 right-8 h-12 w-12 rounded-full bg-gradient-to-b from-sky-500 to-sky-700 text-white hover:scale-[110%] duration-300' : 'hidden'}`}>
+                    <span className="flex justify-center items-center m-auto h-full">
+                        <FaArrowUp />
+                    </span>
+                </button>
+            </Link>
 
         </div>
     )
