@@ -341,7 +341,7 @@ export const HomeComp = () => {
 
             {/* About */}
             <div id="About" className="bg2">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-5 lg:px-8 py-14 contain">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-5 lg:px-8 py-14 lg:py-20 contain">
 
                     <div data-aos="fade-right" data-aos-duration="2000" className="space-y-4">
                         <div className="space-y-6 lg:space-y-1">
