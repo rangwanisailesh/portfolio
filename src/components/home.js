@@ -200,7 +200,7 @@ export const HomeComp = () => {
         { icon: <IoMail />, link: 'mailto:s.rangwani44@gmail.com' },
         { icon: <TbBrandGithubFilled />, link: 'https://github.com/rangwanisailesh' },
         { icon: <RiInstagramFill />, link: 'https://www.instagram.com/sailesh_rangwani?utm_source=qr&igsh=MW5yODBxbG9rY29zcw==' },
-        { icon: <FaXTwitter />, link: 'https://x.com/Sailesh_R?t=xbEh8pWG9ih0j5AJ4B5H1Q&s=08' },
+        { icon: <FaXTwitter />, link: 'https://x.com/Sailesh__R?t=fJeVwBCxjwCZJjYUSUxLsA&s=08' },
     ];
 
     useEffect(() => {
