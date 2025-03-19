@@ -293,7 +293,7 @@ export const HomeComp = () => {
 
                     <div className="space-y-10">
 
-                        <div className={`text-4xl text-center ${inknut}`}>
+                        <div className={`text-4xl text-center ${inknut} leading-12`}>
                             <TypewriterComponent
                                 options={{
                                     strings: ['Welcome To My <span class="text-sky-500">Portfolio !</span>'],
@@ -346,7 +346,7 @@ export const HomeComp = () => {
                     <div data-aos="fade-right" data-aos-duration="2000" className="space-y-4">
                         <div className="space-y-6 lg:space-y-1">
                             <div className=" text-center lg:text-left">-- About Me --</div>
-                            <div className={`${inknut} heading1 text-center lg:text-left`}>
+                            <div className={`${inknut} leading-12 heading1 text-center lg:text-left`}>
                                 <span className="text-sky-500">Who I Am & What I Do</span>
                             </div>
                         </div>
@@ -379,7 +379,7 @@ export const HomeComp = () => {
 
                     <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Skills --</div>
-                        <div className={`${inknut} heading1 text-center`}>
+                        <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">My Skills & Tools</span>
                         </div>
                     </div>
@@ -412,7 +412,7 @@ export const HomeComp = () => {
 
                     <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Experience --</div>
-                        <div className={`${inknut} heading1 text-center`}>
+                        <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">My Journey in Tech & Beyond</span>
                         </div>
                     </div>
@@ -478,7 +478,7 @@ export const HomeComp = () => {
 
                     <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Portfolio --</div>
-                        <div className={`${inknut} heading1 text-center`}>
+                        <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">Showcasing My Work</span>
                         </div>
                         <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
@@ -534,7 +534,7 @@ export const HomeComp = () => {
 
                     <div data-aos="fade-in" data-aos-duration="2000" className="space-y-1">
                         <div className="text-center">-- Contact --</div>
-                        <div className={`${inknut} heading1 text-center`}>
+                        <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">Reach Out To Me</span>
                         </div>
                         <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
