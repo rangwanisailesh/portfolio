@@ -179,6 +179,10 @@ export const HomeComp = () => {
 
     const projects = [
         {
+            img: '/panel.jpg',
+            title: 'AI Automation Panel',
+        },
+        {
             img: '/appointment.jpg',
             title: 'Booking System',
             link: 'https://github.com/rangwanisailesh/Hair-Salon',
