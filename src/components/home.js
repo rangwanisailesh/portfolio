@@ -201,7 +201,7 @@ export const HomeComp = () => {
 
     const contact = [
         { icon: <FaLinkedinIn />, link: 'https://www.linkedin.com/in/sailesh-rangwani-a8523a16a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
-        { icon: <IoMail />, link: 'mailto:s.rangwani44@gmail.com' },
+        { icon: <IoMail />, link: 'mailto:contact@saileshrangwani.in' },
         { icon: <TbBrandGithubFilled />, link: 'https://github.com/rangwanisailesh' },
         { icon: <RiInstagramFill />, link: 'https://www.instagram.com/sailesh_rangwani?utm_source=qr&igsh=MW5yODBxbG9rY29zcw==' },
         { icon: <FaXTwitter />, link: 'https://x.com/Sailesh__R?t=fJeVwBCxjwCZJjYUSUxLsA&s=08' },
