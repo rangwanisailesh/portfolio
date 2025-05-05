@@ -569,7 +569,7 @@ export const HomeComp = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
 
                         {projects.map((project, index) => {
                             return (
@@ -598,13 +598,13 @@ export const HomeComp = () => {
                                             
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {project.technologies.map((tech, techIndex) => (
-                                                    <span key={techIndex} className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">
+                                                    <span key={techIndex} className="px-3 py-1 bg-sky-600 text-white rounded-full text-sm">
                                                         {tech}
                                                     </span>
                                                 ))}
                                             </div>
                                             
-                                            <div className="text-blue-400 flex items-center space-x-2">
+                                            <div className="text-sky-700 flex items-center space-x-2">
                                                 <span>View Project</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
