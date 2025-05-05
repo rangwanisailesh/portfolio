@@ -34,7 +34,7 @@ import { SiSolidity } from "react-icons/si";
 import { BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
 import { IoMail } from "react-icons/io5";
 import { TbBrandGithubFilled } from "react-icons/tb";
-import { FaArrowUp, FaBars, FaXTwitter } from "react-icons/fa6";
+import { FaArrowUp, FaBars, FaXTwitter, FaAngleDown } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { GrOracle } from "react-icons/gr";
 
@@ -282,11 +282,16 @@ export const HomeComp = () => {
         document.body.appendChild(script);
     }, []);
 
+    // Add the background pattern for the hero section
+    const heroBgPattern = {
+        backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M1.22676 0C1.91374 0 2.45351 0.539773 2.45351 1.22676C2.45351 1.91374 1.91374 2.45351 1.22676 2.45351C0.539773 2.45351 0 1.91374 0 1.22676C0 0.539773 0.539773 0 1.22676 0Z\" fill=\"rgba(255,255,255,0.07)\"%3E%3C/path%3E%3C/svg%3E')"
+    };
+
     return (
         <div className={`text-white ${poppins}`}>
 
             {/* Nav & Banner */}
-            <div id="Home" className="bg1 h-[100vh]">
+            <div id="Home" className="bg1 h-[100vh]" style={heroBgPattern}>
 
                 <div className="w-full flex items-center my-auto p-5 lg:px-8 contain">
 
@@ -385,6 +390,15 @@ export const HomeComp = () => {
                     </div>
                 </div>
 
+                {/* Bouncing Chevron Down */}
+                <div className="absolute bottom-10 left-0 right-0 flex justify-center">
+                    <Link to="About" smooth={true} duration={500}>
+                        <button className="animate-bounce duration-300 cursor-pointer">
+                            <FaAngleDown className="h-6 w-6 md:h-8 md:w-8" />
+                        </button>
+                    </Link>
+                </div>
+
             </div>
 
             {/* About */}
@@ -435,31 +449,31 @@ export const HomeComp = () => {
                     <div className="flex flex-wrap justify-center gap-3 mb-8">
                         <button 
                             onClick={() => setActiveSkillFilter("All Skills")}
-                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "All Skills" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "All Skills" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             All Skills
                         </button>
                         <button 
                             onClick={() => setActiveSkillFilter("Frontend")}
-                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Frontend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Frontend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Frontend
                         </button>
                         <button 
                             onClick={() => setActiveSkillFilter("Backend")}
-                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Backend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Backend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Backend
                         </button>
                         <button 
                             onClick={() => setActiveSkillFilter("Database")}
-                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Database" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Database" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Database
                         </button>
                         <button 
                             onClick={() => setActiveSkillFilter("Deployment")}
-                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Deployment" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Deployment" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Deployment
                         </button>
