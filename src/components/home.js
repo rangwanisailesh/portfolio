@@ -31,11 +31,12 @@ import { SiMongodb } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
 import { SiHeadlessui } from "react-icons/si";
 import { SiSolidity } from "react-icons/si";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
 import { IoMail } from "react-icons/io5";
 import { TbBrandGithubFilled } from "react-icons/tb";
 import { FaArrowUp, FaBars, FaXTwitter } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { GrOracle } from "react-icons/gr";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -44,6 +45,7 @@ export const HomeComp = () => {
     const [projecthover, setProjecthover] = useState(null);
     const [top, setTop] = useState(false);
     const [toogle, setToogle] = useState(false);
+    const [activeSkillFilter, setActiveSkillFilter] = useState("All Skills");
 
     const navItmes = [
         { name: 'Home' },
@@ -62,6 +64,7 @@ export const HomeComp = () => {
                     <SiPrisma className="text-white text-xl" />
                 </div>
             ),
+            category: "Backend"
         },
         {
             name: 'Node Js',
@@ -70,6 +73,7 @@ export const HomeComp = () => {
                     <FaNodeJs className="text-white text-xl" />
                 </div>
             ),
+            category: "Backend"
         },
         {
             name: 'Express Js',
@@ -78,6 +82,7 @@ export const HomeComp = () => {
                     <SiExpress className="text-white text-xl" />
                 </div>
             ),
+            category: "Backend"
         },
         {
             name: 'Postgresql',
@@ -86,6 +91,7 @@ export const HomeComp = () => {
                     <BiLogoPostgresql className="text-white text-xl" />
                 </div>
             ),
+            category: "Database"
         },
         {
             name: 'MongoDB',
@@ -94,6 +100,7 @@ export const HomeComp = () => {
                     <SiMongodb className="text-white text-xl" />
                 </div>
             ),
+            category: "Database"
         },
         {
             name: 'Next Js',
@@ -102,6 +109,7 @@ export const HomeComp = () => {
                     <RiNextjsFill className="text-white text-xl" />
                 </div>
             ),
+            category: "Frontend"
         },
         {
             name: 'React Js',
@@ -110,6 +118,7 @@ export const HomeComp = () => {
                     <FaReact className="text-white text-xl" />
                 </div>
             ),
+            category: "Frontend"
         },
         {
             name: 'Github',
@@ -118,6 +127,7 @@ export const HomeComp = () => {
                     <FaGithub className="text-white text-xl" />
                 </div>
             ),
+            category: "Deployment"
         },
         {
             name: 'Tailwind',
@@ -126,6 +136,7 @@ export const HomeComp = () => {
                     <RiTailwindCssFill className="text-white text-xl" />
                 </div>
             ),
+            category: "Frontend"
         },
         {
             name: 'Supabase',
@@ -134,6 +145,7 @@ export const HomeComp = () => {
                     <RiSupabaseFill className="text-white text-xl" />
                 </div>
             ),
+            category: "Database"
         },
         {
             name: 'AWS',
@@ -142,6 +154,7 @@ export const HomeComp = () => {
                     <FaAws className="text-white text-xl" />
                 </div>
             ),
+            category: "Deployment"
         },
         {
             name: 'Cloudinary',
@@ -150,6 +163,7 @@ export const HomeComp = () => {
                     <SiCloudinary className="text-white text-xl" />
                 </div>
             ),
+            category: "Deployment"
         },
         {
             name: 'Headless Apps',
@@ -158,6 +172,7 @@ export const HomeComp = () => {
                     <SiHeadlessui className="text-white text-xl" />
                 </div>
             ),
+            category: "Frontend"
         },
         {
             name: 'Blockchain',
@@ -166,6 +181,7 @@ export const HomeComp = () => {
                     <LiaLaptopCodeSolid className="text-white text-xl" />
                 </div>
             ),
+            category: "Backend"
         },
         {
             name: 'Solidity',
@@ -174,6 +190,25 @@ export const HomeComp = () => {
                     <SiSolidity className="text-white text-xl" />
                 </div>
             ),
+            category: "Backend"
+        },
+        {
+            name: 'TypeScript',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-blue-500 to-blue-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <BiLogoTypescript className="text-white text-xl" />
+                </div>
+            ),
+            category: "Frontend"
+        },
+        {
+            name: 'Oracle Cloud',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-red-500 to-red-700 rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <GrOracle className="text-white text-xl" />
+                </div>
+            ),
+            category: "Deployment"
         },
     ];
 
@@ -181,20 +216,29 @@ export const HomeComp = () => {
         {
             img: '/panel.jpg',
             title: 'AI Automation Panel',
+            description: 'Advanced AI automation dashboard with real-time processing capabilities.',
+            technologies: ['Next.js', 'Openai Api', 'Postgresql', 'Puppeteer'],
+            link: 'https://github.com/rangwanisailesh/PKLPO-Panel',
         },
         {
             img: '/appointment.jpg',
             title: 'Booking System',
+            description: 'Full-featured appointment booking system with calendar integration.',
+            technologies: ['Next.js', 'Node.js', 'MongoDB', 'Express'],
             link: 'https://github.com/rangwanisailesh/Hair-Salon',
         },
         {
             img: '/admin.jpg',
             title: 'Headless Admin Panel',
+            description: 'Modern headless admin dashboard for content management.',
+            technologies: ['Next.js', 'Headless Lib', 'Fluent UI', 'MongoDB'],
             link: 'https://github.com/rangwanisailesh/Headless-Admin-App',
         },
         {
             img: '/blockchain.jpg',
             title: 'ERC-20 Token',
+            description: 'Custom ERC-20 token implementation with blockchain integration.',
+            technologies: ['Solidity', 'Next.js', 'Web3.js', 'Hardhat'],
             link: 'https://github.com/rangwanisailesh/sr-token-hardhat',
         }
     ];
@@ -388,10 +432,45 @@ export const HomeComp = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
-                        {skills.map((i, index) => {
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                        <button 
+                            onClick={() => setActiveSkillFilter("All Skills")}
+                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "All Skills" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            All Skills
+                        </button>
+                        <button 
+                            onClick={() => setActiveSkillFilter("Frontend")}
+                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Frontend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            Frontend
+                        </button>
+                        <button 
+                            onClick={() => setActiveSkillFilter("Backend")}
+                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Backend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            Backend
+                        </button>
+                        <button 
+                            onClick={() => setActiveSkillFilter("Database")}
+                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Database" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            Database
+                        </button>
+                        <button 
+                            onClick={() => setActiveSkillFilter("Deployment")}
+                            className={`px-4 py-2 rounded-full ${activeSkillFilter === "Deployment" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            Deployment
+                        </button>
+                    </div>
+
+                    <div data-aos="fade-in" data-aos-duration="2000" data-aos-delay="100" className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-10">
+                        {skills
+                            .filter(skill => activeSkillFilter === "All Skills" || skill.category === activeSkillFilter)
+                            .map((i, index) => {
                             return (
-                                <div data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={100 * index} key={index}>
+                                <div key={index}>
                                     <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300">
                                         <div className="flex justify-center mx-auto text-center">
                                             {i.icon}
@@ -490,36 +569,48 @@ export const HomeComp = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-                        {projects.map((i, index) => {
+                        {projects.map((project, index) => {
                             return (
                                 <a
-                                    href={i.link}
+                                    href={project.link}
                                     key={index}
                                     target="_blank"
                                     onMouseEnter={() => setProjecthover(index)}
                                     onMouseLeave={() => setProjecthover(null)}
                                     data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={index * 200}
-                                    className="h-80 w-full relative overflow-hidden cursor-pointer">
+                                    className="h-80 w-full relative overflow-hidden rounded-lg cursor-pointer group">
                                     <Image
-                                        alt="appointment system"
-                                        src={i.img}
+                                        alt={project.title}
+                                        src={project.img}
                                         objectFit="cover"
-                                        layout="position"
-                                        fill={true}
+                                        layout="fill"
                                         objectPosition="top"
-                                        className={`${projecthover == index ? 'scale-[110%] duration-300' : 'duration-300'}`}
+                                        className="transform transition-transform duration-500 group-hover:scale-110"
                                     />
-                                    <div className="p-4 bg-[#121212ba] w-full h-full absolute top-0 left-0">
-
-                                        <div className="flex items-center my-auto space-x-2">
-                                            <div className="w-1 h-6 bg-sky-500 rounded-lg"></div>
-                                            <div className="text-lg">
-                                                {i.title}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+                                    
+                                    <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
+                                        <div>
+                                            <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                                            <p className="text-gray-300 mb-4">{project.description}</p>
+                                            
+                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                {project.technologies.map((tech, techIndex) => (
+                                                    <span key={techIndex} className="px-3 py-1 bg-blue-900 text-blue-300 rounded-full text-sm">
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            
+                                            <div className="text-blue-400 flex items-center space-x-2">
+                                                <span>View Project</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
                                             </div>
                                         </div>
-
                                     </div>
                                 </a>
                             )
