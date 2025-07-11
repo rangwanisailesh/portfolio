@@ -37,6 +37,7 @@ import { TbBrandGithubFilled } from "react-icons/tb";
 import { FaArrowUp, FaBars, FaXTwitter, FaAngleDown } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { GrOracle } from "react-icons/gr";
+import { SiOllama } from "react-icons/si";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -57,6 +58,15 @@ export const HomeComp = () => {
     ];
 
     const skills = [
+        {
+            name: 'Ollama',
+            icon: (
+                <div className="h-10 w-10 bg-gradient-to-b from-gray-700 to-black rounded-full flex justify-center items-center drop-shadow hover:scale-[110%] duration-300">
+                    <SiOllama className="text-white text-xl" />
+                </div>
+            ),
+            category: "AI"
+        },
         {
             name: 'Prisma',
             icon: (
@@ -360,7 +370,7 @@ export const HomeComp = () => {
                             />
                         </div>
 
-                        <div data-aos="fade-in" data-aos-duration="2000" data-aos-delay="2000" className={`text-lg lg:w-[70%] text-center flex justify-center mx-auto`}>
+                        <div data-aos="fade-in" data-aos-duration="2000" data-aos-delay="2000" className={`leading-7 text-lg lg:w-[70%] text-center flex justify-center mx-auto`}>
                             Hi, I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer & Deployment Specialist.
                         </div>
 
@@ -402,7 +412,7 @@ export const HomeComp = () => {
             </div>
 
             {/* About */}
-            <div id="About" className="bg2">
+            <div id="About" className="bg2 lg:h-[100vh] lg:flex lg:items-center lg:my-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 px-5 lg:px-8 py-14 lg:py-20 contain">
 
                     <div data-aos="fade-right" data-aos-duration="2000" className="space-y-4">
@@ -419,11 +429,13 @@ export const HomeComp = () => {
                             </div>
                         </div>
 
-                        <div className="">
-                            Hey there! I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer, and Deployment Specialist. With expertise in building scalable web applications, APIs, and cloud deployments, I love turning complex ideas into seamless digital experiences.
+                        <div className="leading-7">
+                            Hey there! I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer, and Deployment Specialist — with a growing expertise in AI integration and automation.
+                            <br /><br />
+                            I specialize in building scalable web applications, APIs, and deploying cloud-native solutions. From crafting dynamic frontend interfaces to architecting secure, high-performance backends, I deliver seamless digital experiences.
                         </div>
-                        <div className="text-gray-400">
-                            From crafting dynamic frontend interfaces to designing robust backend architectures, I ensure performance, security, and reliability at every step. Whether it's database management, API integrations, or deploying applications to the cloud, I thrive on delivering efficient and scalable solutions.
+                        <div className="text-gray-400 leading-7">
+                            My workflow often includes integrating AI-driven features, working with LLMs, and automating complex backend logic to bring intelligence into everyday applications. Whether it's database design, API connectivity, or cloud deployment pipelines — I thrive on building smart, efficient, and scalable systems that solve real-world problems.
                         </div>
                     </div>
 
@@ -447,31 +459,37 @@ export const HomeComp = () => {
                     </div>
 
                     <div className="flex flex-wrap justify-center gap-3 mb-8">
-                        <button 
+                        <button
                             onClick={() => setActiveSkillFilter("All Skills")}
                             className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "All Skills" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             All Skills
                         </button>
-                        <button 
+                        <button
+                            onClick={() => setActiveSkillFilter("AI")}
+                            className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "AI" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
+                        >
+                            AI
+                        </button>
+                        <button
                             onClick={() => setActiveSkillFilter("Frontend")}
                             className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Frontend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Frontend
                         </button>
-                        <button 
+                        <button
                             onClick={() => setActiveSkillFilter("Backend")}
                             className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Backend" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Backend
                         </button>
-                        <button 
+                        <button
                             onClick={() => setActiveSkillFilter("Database")}
                             className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Database" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
                             Database
                         </button>
-                        <button 
+                        <button
                             onClick={() => setActiveSkillFilter("Deployment")}
                             className={`cursor-pointer px-4 py-2 rounded-full ${activeSkillFilter === "Deployment" ? "bg-sky-500 text-white" : "bg-gray-800 text-gray-300"} hover:bg-sky-600 transition-all duration-300`}
                         >
@@ -483,19 +501,19 @@ export const HomeComp = () => {
                         {skills
                             .filter(skill => activeSkillFilter === "All Skills" || skill.category === activeSkillFilter)
                             .map((i, index) => {
-                            return (
-                                <div key={index}>
-                                    <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300">
-                                        <div className="flex justify-center mx-auto text-center">
-                                            {i.icon}
-                                        </div>
-                                        <div className="flex justify-center mx-auto text-center mt-3">
-                                            {i.name}
+                                return (
+                                    <div key={index}>
+                                        <div className="bg2 border border-gray-800 rounded-lg shadow p-4 hover:scale-[110%] duration-300">
+                                            <div className="flex justify-center mx-auto text-center">
+                                                {i.icon}
+                                            </div>
+                                            <div className="flex justify-center mx-auto text-center mt-3">
+                                                {i.name}
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })}
                     </div>
 
                 </div>
@@ -521,7 +539,7 @@ export const HomeComp = () => {
                         </div>
 
                         <div data-aos="fade-left" data-aos-duration="2000" className="space-y-5">
-                            <div className="">
+                            <div className="leading-7">
                                 My coding journey began in HSC with a deep interest in technology, but COVID led me to work as an Investigator at Oracle Investigation Agency, handling reports, documentation, and portal management.
                                 Later, I transitioned to Anriyo Tech Solutions as a Full Stack Developer, building Full Stack Apps, and deploying scalable web solutions focused on performance and security.
                             </div>
@@ -537,7 +555,7 @@ export const HomeComp = () => {
                                     <div className="space-y-2">
                                         <div>Apr 2023 - Mar 2025 (2 years)</div>
                                         <div>Full Stack Developer | Anriyo Tech Solutions</div>
-                                        <div className="text-gray-400">
+                                        <div className="text-gray-400 leading-7">
                                             Designed & developed Headless Applications for scalable solutions. Built and deployed full-stack applications, optimizing security, performance, and efficiency. Integrated APIs and streamlined backend operations for seamless functionality.
                                         </div>
                                     </div>
@@ -552,7 +570,7 @@ export const HomeComp = () => {
                                     <div className="space-y-2">
                                         <div>Oct 2022 - Mar 2023 (6 months)</div>
                                         <div>Investigator | Oracle Investigation Agency</div>
-                                        <div className="text-gray-400">
+                                        <div className="text-gray-400 leading-7">
                                             Conducted detailed MS Excel reports & documentations.
                                             Managed & updated records on their internal investigation portal.
                                             Strengthened data analysis and reporting skills.
@@ -578,7 +596,7 @@ export const HomeComp = () => {
                         <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">Showcasing My Work</span>
                         </div>
-                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
+                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2 leading-7">
                             Here are some of my projects showcasing my skills in full-stack development, headless applications, and efficient deployments.
                         </div>
                     </div>
@@ -604,12 +622,12 @@ export const HomeComp = () => {
                                         className="transform transition-transform duration-500 group-hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
-                                    
+
                                     <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
                                         <div>
                                             <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                                             <p className="text-gray-300 mb-4">{project.description}</p>
-                                            
+
                                             <div className="flex flex-wrap gap-2 mb-4">
                                                 {project.technologies.map((tech, techIndex) => (
                                                     <span key={techIndex} className="px-3 py-1 bg-sky-600 text-white rounded-full text-sm">
@@ -617,7 +635,7 @@ export const HomeComp = () => {
                                                     </span>
                                                 ))}
                                             </div>
-                                            
+
                                             <div className="text-sky-700 flex items-center space-x-2">
                                                 <span>View Project</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -646,7 +664,7 @@ export const HomeComp = () => {
                         <div className={`${inknut} leading-12 heading1 text-center`}>
                             <span className="text-sky-500">Reach Out To Me</span>
                         </div>
-                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2">
+                        <div className="text-center text-gray-400 lg:w-[60%] flex justify-center mx-auto mt-2 leading-7">
                             Feel free to reach out for collaborations, projects, or just a tech chat. I'm always open to new opportunities!
                         </div>
                     </div>

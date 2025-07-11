@@ -4,7 +4,7 @@ export const metadata = {
   icons: {
     icon: '/icon.ico'
   },
-  title: 'Sailesh Rangwani',
+  title: 'Sailesh Rangwani | Full Stack Developer, Backend Engineer & Deployment Specialist',
   description: `Hi, I'm Sailesh Rangwani, a passionate Full Stack Developer, Backend Engineer & Deployment Specialist.`
 }
 
