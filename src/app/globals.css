@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer components {
+
+  .contain {
+    @apply max-w-[1250px] mx-auto;
+  }
+  
+  .bg1 { @apply bg-[#1A222C] }
+  
+  .bg2 { @apply bg-[#0F161C] }
+
+  .heading1 { @apply font-semibold text-3xl tracking-wide }
+
+  .btn1  {
+    @apply bg-gradient-to-r from-sky-600 to-sky-800 px-4 py-2 rounded-lg shadow-lg hover:scale-[105%] duration-300 cursor-pointer;
+  }
+
+}
