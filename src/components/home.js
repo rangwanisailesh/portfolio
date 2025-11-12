@@ -47,6 +47,8 @@ export const HomeComp = () => {
     const [top, setTop] = useState(false);
     const [toogle, setToogle] = useState(false);
     const [activeSkillFilter, setActiveSkillFilter] = useState("All Skills");
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
 
     const navItmes = [
         { name: 'Home' },
@@ -224,11 +226,22 @@ export const HomeComp = () => {
 
     const projects = [
         {
+            img: '/asiana.png',
+            title: 'Asiana',
+            description: 'Advanced AI-powered trading algorithm software with real-time market analysis and automated trading strategies.',
+            technologies: ['Next.js', 'Express.js', 'Telegram Webhook', 'Trading APIs', 'WebSocket'],
+            link: '#',
+            isPrivate: true,
+            isFeatured: true
+        },
+        {
             img: '/panel.jpg',
             title: 'AI Automation Panel',
             description: 'Advanced AI automation dashboard with real-time processing capabilities.',
             technologies: ['Next.js', 'Openai Api', 'Postgresql', 'Puppeteer'],
             link: 'https://github.com/rangwanisailesh/PKLPO-Panel',
+            isPrivate: true,
+            isFeatured: false
         },
         {
             img: '/appointment.jpg',
@@ -236,6 +249,8 @@ export const HomeComp = () => {
             description: 'Full-featured appointment booking system with calendar integration.',
             technologies: ['Next.js', 'Node.js', 'MongoDB', 'Express'],
             link: 'https://github.com/rangwanisailesh/Hair-Salon',
+            isPrivate: false,
+            isFeatured: false
         },
         {
             img: '/admin.jpg',
@@ -243,6 +258,8 @@ export const HomeComp = () => {
             description: 'Modern headless admin dashboard for content management.',
             technologies: ['Next.js', 'Headless Lib', 'Fluent UI', 'MongoDB'],
             link: 'https://github.com/rangwanisailesh/Headless-Admin-App',
+            isPrivate: false,
+            isFeatured: false
         },
         {
             img: '/blockchain.jpg',
@@ -250,6 +267,8 @@ export const HomeComp = () => {
             description: 'Custom ERC-20 token implementation with blockchain integration.',
             technologies: ['Solidity', 'Next.js', 'Web3.js', 'Hardhat'],
             link: 'https://github.com/rangwanisailesh/sr-token-hardhat',
+            isPrivate: false,
+            isFeatured: false
         }
     ];
 
@@ -291,6 +310,24 @@ export const HomeComp = () => {
         script.async = true;
         document.body.appendChild(script);
     }, []);
+
+    const handleProjectClick = (e, project) => {
+        if (project.isPrivate) {
+            e.preventDefault();
+            setPopupMessage("This GitHub repository is private. Please contact me for a demo or more information.");
+            setShowPopup(true);
+        }
+    };
+
+    const handleContactClick = () => {
+        setShowPopup(false);
+        setTimeout(() => {
+            const contactSection = document.getElementById('Contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    };
 
     // Add the background pattern for the hero section
     const heroBgPattern = {
@@ -601,18 +638,17 @@ export const HomeComp = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12">
-
-                        {projects.map((project, index) => {
+                    {/* Featured Projects - Full Width Center */}
+                    <div className="space-y-6 lg:space-y-8">
+                        {projects.filter(p => p.isFeatured).map((project, index) => {
                             return (
-                                <a
-                                    href={project.link}
+                                <div
                                     key={index}
-                                    target="_blank"
+                                    onClick={(e) => handleProjectClick(e, project)}
                                     onMouseEnter={() => setProjecthover(index)}
                                     onMouseLeave={() => setProjecthover(null)}
                                     data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={index * 200}
-                                    className="h-80 w-full relative overflow-hidden rounded-lg cursor-pointer group">
+                                    className="h-80 lg:h-[28rem] w-full lg:w-[80%] mx-auto relative overflow-hidden rounded-lg cursor-pointer group">
                                     <Image
                                         alt={project.title}
                                         src={project.img}
@@ -636,7 +672,7 @@ export const HomeComp = () => {
                                                 ))}
                                             </div>
 
-                                            <div className="text-sky-700 flex items-center space-x-2">
+                                            <div className="text-sky-400 flex items-center space-x-2">
                                                 <span>View Project</span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -644,11 +680,61 @@ export const HomeComp = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </a>
+                                </div>
                             )
                         })}
-
                     </div>
+
+                    {/* Regular Projects Grid */}
+                    {projects.filter(p => !p.isFeatured).length > 0 && (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-12 mt-12">
+                            {projects.filter(p => !p.isFeatured).map((project, index) => {
+                                return (
+                                    <a
+                                        href={project.link}
+                                        key={index}
+                                        target="_blank"
+                                        onClick={(e) => handleProjectClick(e, project)}
+                                        onMouseEnter={() => setProjecthover(index + 100)}
+                                        onMouseLeave={() => setProjecthover(null)}
+                                        data-aos="zoom-in" data-aos-duration="2000" data-aos-delay={index * 200}
+                                        className="h-80 w-full relative overflow-hidden rounded-lg cursor-pointer group">
+                                        <Image
+                                            alt={project.title}
+                                            src={project.img}
+                                            objectFit="cover"
+                                            layout="fill"
+                                            objectPosition="top"
+                                            className="transform transition-transform duration-500 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent"></div>
+
+                                        <div className="absolute inset-0 flex flex-col justify-end p-6 z-10">
+                                            <div>
+                                                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                                                <p className="text-gray-300 mb-4">{project.description}</p>
+
+                                                <div className="flex flex-wrap gap-2 mb-4">
+                                                    {project.technologies.map((tech, techIndex) => (
+                                                        <span key={techIndex} className="px-3 py-1 bg-sky-600 text-white rounded-full text-sm">
+                                                            {tech}
+                                                        </span>
+                                                    ))}
+                                                </div>
+
+                                                <div className="text-sky-400 flex items-center space-x-2">
+                                                    <span>View Project</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                )
+                            })}
+                        </div>
+                    )}
 
                 </div>
 
@@ -694,6 +780,35 @@ export const HomeComp = () => {
                 </div>
 
             </div>
+
+            {/* Popup Modal */}
+            {showPopup && (
+                <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-5" onClick={() => setShowPopup(false)}>
+                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-lg p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+                        <div className="flex justify-between items-start mb-4">
+                            <h3 className="text-xl font-bold text-sky-400">Private Repository</h3>
+                            <button onClick={() => setShowPopup(false)} className="text-gray-400 hover:text-white transition-colors">
+                                <RxCross2 className="text-2xl" />
+                            </button>
+                        </div>
+                        <p className="text-gray-300 leading-7 mb-6">
+                            {popupMessage}
+                        </p>
+                        <div className="flex justify-end space-x-3">
+                            <button
+                                onClick={() => setShowPopup(false)}
+                                className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors">
+                                Close
+                            </button>
+                            <button
+                                onClick={handleContactClick}
+                                className="px-4 py-2 bg-gradient-to-b from-sky-500 to-sky-700 hover:from-sky-600 hover:to-sky-800 text-white rounded-lg transition-colors">
+                                Contact Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Top Button */}
             <Link to={"Home"} smooth={true} duration={500}>
